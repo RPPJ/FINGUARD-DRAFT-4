@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinGuard - Plan Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>FinGuard</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="how-to-get-started.html">Guide</a>
+            <a href="features.html">Features & Plans</a>
+            <a href="wallet.html">Digital Wallet</a>
+            <a href="notifications.html">Notifications</a>
+            <a href="transactions.html">Transactions</a>
+            <a href="summary-widgets.html">Summary Widgets</a>
+            <a href="transaction-details.html">Transaction Details</a>
+        </nav>
+        <div class="auth-buttons">
+            <button onclick="location.href='login.html'">Login</button>
+            <button onclick="location.href='signup.html'">Sign Up</button>
+        </div>
+    </header>
+    <main>
+        <section class="plan-confirmation">
+            <h2>Plan Confirmation</h2>
+            <p>Selected Plan: <span id="selected-plan">Monthly Plan ($59/Month)</span></p>
+            <a href="wallet.html" class="btn">Checkout now with FinGuard Digital Wallet</a>
+        </section>
+    </main>
+
+</body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan');
+    const planText = plan === 'yearly' ? 'Yearly Plan ($675/annum)' : plan === 'lifetime' ? 'Lifetime Plan ($9,999 - One Time)' : 'Monthly Plan ($59/Month)';
+    document.getElementById('selected-plan').textContent = planText;
+</script>
+</html>
